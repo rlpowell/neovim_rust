@@ -43,6 +43,7 @@ COPY cargo_config.toml /var/tmp/cargo_config.toml
 
 RUN echo "cp /var/tmp/cargo_config.toml ~/.cargo/config.toml" > /home/$USERNAME/.bothrc-local
 RUN echo "cd \$SRC_DIR" >> /home/$USERNAME/.bothrc-local
+RUN echo "export HISTFILE=\$SRC_DIR/.container_history" >> /home/$USERNAME/.bothrc-local
 
 ## If you want to use beta:
 ##
