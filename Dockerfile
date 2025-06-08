@@ -1,4 +1,4 @@
-FROM docker.io/library/rust:1.80
+FROM docker.io/library/rust:1.87
 
 # NB: this dockerfile expects to be run using rootless podman with
 # the --userns=keep-id, and may not work with normal root-user
@@ -69,9 +69,9 @@ RUN cargo install cargo-tarpaulin
 RUN cargo install cargo-audit
 
 # Now we install nvim
-RUN cd /tmp && wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz && \
-    rm -rf /opt/nvim-linux64 && \
-    mkdir -p /opt/nvim-linux64 && \
-    chmod a+rX /opt/nvim-linux64 && \
-    tar -C /opt -xzf nvim-linux64.tar.gz && \
-    ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
+RUN cd /tmp && wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz && \
+    rm -rf /opt/nvim-linux-x86_64 && \
+    mkdir -p /opt/nvim-linux-x86_64 && \
+    chmod a+rX /opt/nvim-linux-x86_64 && \
+    tar -C /opt -xzf nvim-linux-x86_64.tar.gz && \
+    ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
